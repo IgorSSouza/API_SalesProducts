@@ -9,9 +9,9 @@ class VendasController {
 
   async store(req, res) {
     try {
-      const { produtosid, quantidade } = req.body;
+      const { idProdutos, quantidade, idPagamento } = req.body;
 
-      const produto = await Produto.findByPk(produtosid);
+      const produto = await Produto.findByPk(idProdutos);
 
       const produtoCalc = produto.estoque -= quantidade;
 
@@ -25,14 +25,15 @@ class VendasController {
 
       //Envia os dados referentes para a tabela Produto
       await produto.update({
-        id: produtosid,
+        id: idProdutos,
         estoque: produtoCalc,
       });
 
       const venda = await Venda.create({
-        produtosid,
+        idProdutos,
         quantidade,
         valor: valorCalculado,
+        idPagamento,
       });
 
       return res.json(venda);
