@@ -1,5 +1,6 @@
 import Categoria from '../models/Categoria';
 import Produto from '../models/Produto';
+import Venda from '../models/Venda';
 
 class ProdutosController {
   async index(req, res) {
@@ -104,7 +105,13 @@ class ProdutosController {
           errors: 'Aluno não existe!',
         });
       }
-      await produto.destroy();
+
+      const opVenda = await Venda.update({ idProdutos: null }, { where: { idProdutos: id } });
+
+      if (opVenda) {
+        await produto.destroy();
+      }
+
       return res.json({
         apagado: true,
       });

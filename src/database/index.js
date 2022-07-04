@@ -6,6 +6,7 @@ import Servico from '../models/Servico';
 import Venda from '../models/Venda';
 import Categoria from '../models/Categoria';
 import FormaDePagamento from '../models/FormaDePagamento';
+import Orcamento from '../models/Orcamento';
 
 const models = [
   Pensamento,
@@ -14,6 +15,7 @@ const models = [
   Categoria,
   FormaDePagamento,
   Servico,
+  Orcamento,
 ];
 
 const connection = new Sequelize(databaseConfig);

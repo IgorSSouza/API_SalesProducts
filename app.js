@@ -12,6 +12,7 @@ import servicosRoutes from './src/routes/servicosRoutes';
 import vendasRoutes from './src/routes/vendasRoutes';
 import categoriasRoutes from './src/routes/categoriasRoutes';
 import formaDePagamentoRoutes from './src/routes/formaPagamentoRoutes';
+import orcamentosRoutes from './src/routes/orcamentosRoutes';
 
 class App {
   constructor() {
@@ -33,6 +34,7 @@ class App {
     this.app.use('/vendas/', vendasRoutes);
     this.app.use('/categorias/', categoriasRoutes);
     this.app.use('/formadepagamento/', formaDePagamentoRoutes);
+    this.app.use('/orcamentos/', orcamentosRoutes);
   }
 }
 

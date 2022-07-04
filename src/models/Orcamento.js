@@ -1,14 +1,12 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Venda extends Model {
+export default class Orcamento extends Model {
   static init(sequelize) {
     super.init({
-      idProdutos: Sequelize.INTEGER,
       idServico: Sequelize.INTEGER,
-      quantidade: Sequelize.INTEGER,
-      observacao: Sequelize.STRING,
       idPagamento: Sequelize.INTEGER,
       valor: Sequelize.FLOAT,
+      observacao: Sequelize.STRING,
 
     }, {
       sequelize,
@@ -17,8 +15,8 @@ export default class Venda extends Model {
   }
 
   static associate(models) {
-    this.belongsTo(models.Produto, {
-      foreignKey: 'idProdutos',
+    this.belongsTo(models.Servico, {
+      foreignKey: 'idServico',
     });
   }
 }

@@ -1,15 +1,25 @@
 import Venda from '../models/Venda';
 import Produto from '../models/Produto';
+import Pagamento from '../models/FormaDePagamento';
+import Orcamento from '../models/Orcamento';
 
 class VendasController {
   async index(req, res) {
-    const produto = await Venda.findAll();
-    res.json(produto);
+    const venda = await Venda.findAll({
+      attributes: ['id', 'quantidade', 'idPagamento', 'valor', 'created_at'],
+      include: {
+        model: Produto, Pagamento,
+      },
+
+    });
+    res.json(venda);
   }
 
   async store(req, res) {
     try {
-      const { idProdutos, quantidade, idPagamento } = req.body;
+      const {
+        idProdutos, quantidade, idPagamento,
+      } = req.body;
 
       const produto = await Produto.findByPk(idProdutos);
 
@@ -35,6 +45,38 @@ class VendasController {
         valor: valorCalculado,
         idPagamento,
       });
+      return res.json(venda);
+    } catch (e) {
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
+    }
+  }
+
+  async storeOrcamento(req, res) {
+    const { id } = req.params;
+    try {
+      const {
+        idServico, observacao, valor, idPagamento,
+      } = req.body;
+
+      //Envia os dados referentes para a tabela Produto
+      const venda = await Venda.create({
+        idServico,
+        observacao,
+        valor,
+        idPagamento,
+      });
+
+      const orcamento = await Orcamento.findByPk(id);
+
+      if (!orcamento) {
+        return res.status(400).json({
+          errors: 'Orçamento não existe!',
+        });
+      }
+
+      await orcamento.destroy();
 
       return res.json(venda);
     } catch (e) {
