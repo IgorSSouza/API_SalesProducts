@@ -1,10 +1,10 @@
 import { Router } from 'express';
 import vendasController from '../controllers/VendasController';
 
+import loginRequired from '../middlewares/loginRequired';
+
 const router = new Router();
 
-router.put('/', vendasController.store);
-router.post('/:id', vendasController.storeOrcamento);
-router.get('/', vendasController.index);
+router.post('/', vendasController.store);
 
 export default router;

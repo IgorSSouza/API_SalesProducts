@@ -1,21 +1,13 @@
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database';
-import Pensamento from '../models/Pensamento';
-import Produto from '../models/Produto';
-import Servico from '../models/Servico';
-import Venda from '../models/Venda';
-import Categoria from '../models/Categoria';
-import FormaDePagamento from '../models/FormaDePagamento';
-import Orcamento from '../models/Orcamento';
+
+import Venda from '../models/venda';
+
+import User from '../models/User';
 
 const models = [
-  Pensamento,
-  Produto,
   Venda,
-  Categoria,
-  FormaDePagamento,
-  Servico,
-  Orcamento,
+  User,
 ];
 
 const connection = new Sequelize(databaseConfig);

@@ -6,13 +6,9 @@ dotenv.config();
 import './src/database';
 
 import express from 'express';
-import homeRoutes from './src/routes/homeRoutes';
-import produtosRoutes from './src/routes/produtosRoutes';
-import servicosRoutes from './src/routes/servicosRoutes';
+
 import vendasRoutes from './src/routes/vendasRoutes';
-import categoriasRoutes from './src/routes/categoriasRoutes';
-import formaDePagamentoRoutes from './src/routes/formaPagamentoRoutes';
-import orcamentosRoutes from './src/routes/orcamentosRoutes';
+import tokenRoutes from './src/routes/tokenRoutes';
 
 class App {
   constructor() {
@@ -28,13 +24,8 @@ class App {
   }
 
   routes() {
-    this.app.use('/', homeRoutes);
-    this.app.use('/produtos/', produtosRoutes);
-    this.app.use('/servicos/', servicosRoutes);
     this.app.use('/vendas/', vendasRoutes);
-    this.app.use('/categorias/', categoriasRoutes);
-    this.app.use('/formadepagamento/', formaDePagamentoRoutes);
-    this.app.use('/orcamentos/', orcamentosRoutes);
+    this.app.use('/tokens/', tokenRoutes);
   }
 }
 
