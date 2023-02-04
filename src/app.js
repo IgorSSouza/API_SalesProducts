@@ -3,12 +3,12 @@ import cors from 'cors';
 
 dotenv.config();
 
-import './src/database';
+import './database';
 
 import express from 'express';
 
-import vendasRoutes from './src/routes/vendasRoutes';
-import tokenRoutes from './src/routes/tokenRoutes';
+import vendasRoutes from './routes/vendasRoutes';
+import tokenRoutes from './routes/tokenRoutes';
 
 class App {
   constructor() {
