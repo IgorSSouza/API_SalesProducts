@@ -14,4 +14,10 @@ export default class Venda extends Model {
     });
     return this;
   }
+  static associate(models) {
+    this.belongsTo(models.User, {
+      foreignKey: 'idUser',
+    });
+
+  }
 }

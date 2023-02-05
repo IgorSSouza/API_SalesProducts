@@ -7,7 +7,7 @@ import './database';
 
 import express from 'express';
 
-import vendasRoutes from './routes/vendasRoutes';
+import vendaRoutes from './routes/vendasRoutes';
 import tokenRoutes from './routes/tokenRoutes';
 
 class App {
@@ -24,7 +24,7 @@ class App {
   }
 
   routes() {
-    this.app.use('/vendas/', vendasRoutes);
+    this.app.use('/vendas/', vendaRoutes);
     this.app.use('/tokens/', tokenRoutes);
   }
 }

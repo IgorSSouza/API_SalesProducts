@@ -14,4 +14,10 @@
     });
     return this;
   }
+  static associate(models) {
+    this.belongsTo(models.User, {
+      foreignKey: 'idUser',
+    });
+
+  }
 } exports.default = Venda;

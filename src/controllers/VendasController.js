@@ -1,7 +1,16 @@
+import User from '../models/User';
 import Venda from '../models/venda';
 
 class VendasController {
-  
+  async index(req, res) {
+    const venda = await Venda.findAll({
+      attributes: ['id','idProduct','name','quantity','price','idSupplier','created_at'],
+      include: {
+      model: User,
+      attributes: ['id','nome','email']
+    },});
+    res.json(venda);
+  }
 
   async store(req, res) {
     try {
