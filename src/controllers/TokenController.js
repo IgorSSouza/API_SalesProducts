@@ -27,12 +27,6 @@ class TokenController {
       });
     }
 
-    if (user.status === false) {
-      return res.status(401).json({
-        errors: ['o usuário está inativo, verifique a situação com o Adm do sistema!'],
-      });
-    }
-
     const {
       id, nome,
     } = user;

@@ -5,7 +5,7 @@ var _loginRequired = require('../middlewares/loginRequired'); var _loginRequired
 
 const router = new (0, _express.Router)();
 
-router.post('/', _VendasController2.default.store);
+router.post('/', _loginRequired2.default,_VendasController2.default.store);
 router.get('/', _VendasController2.default.index);
 
 exports. default = router;

@@ -4,8 +4,8 @@ API Sales Products - Node JS, express, sequelize e mariadb
 
 ## Instalação do projeto
 
-- Após baixar o projeto, você precisa abrir o terminal no local da pasta do arquivo e rodar o comando "npm i" sem as aspas para instalar as dependências.
-- A API vai estar hospedada em um servidor de testes gratuito, esse é o código fonte mas caso queira rodar o projeto localmente entre em contato novamente que disponibilizarei o .env onde está localizado as variáveis de ambiente.
+- Após baixar o projeto, você precisa abrir o terminal no local da pasta do arquivo e rodar o comando "npm i" sem as aspas para instalar as dependências caso queira executar localmente.
+- A API vai estar hospedada em um servidor de testes gratuito, esse é o código fonte mas caso queira rodar o projeto localmente entre em contato novamente que disponibilizarei o .env onde está localizado as credenciais do db.
 
 ## Como foi o processo de desenvolvimento
 
